@@ -141,7 +141,11 @@ def search_songs(
     return songs
 
 from autogen_ext.models.openai import OpenAIChatCompletionClient
-GROQ_API_KEY = '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'
+from dotenv import load_dotenv
+import os
+# Load from .env file
+load_dotenv()
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 model_client = OpenAIChatCompletionClient(
         model="llama-3.3-70b-versatile",
         model_info={
